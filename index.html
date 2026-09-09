@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#14553d" />
+  <meta name="description" content="花蓮縣林榮國小教師智慧工作站，提供班級行政、家長溝通、教學評量、輔導與校務文件產生工具。" />
+  <title>林榮智慧教務站｜花蓮縣林榮國小</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section class="access-gate" id="accessGate" aria-labelledby="accessTitle">
+    <div class="gate-scenery" aria-hidden="true"><span class="gate-sun"></span><span class="gate-ridge ridge-a"></span><span class="gate-ridge ridge-b"></span></div>
+    <div class="gate-card">
+      <div class="gate-brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M8 35 20 16l6 9 5-7 9 17H8Z" fill="currentColor" opacity=".32"/><path d="M7 36h34M13 36c4-4 7-5 11-3s7 2 12-2" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+        </span>
+        <span><strong>林榮智慧教務站</strong><small>花蓮縣林榮國民小學</small></span>
+      </div>
+      <span class="gate-label">AUTHORIZED ACCESS</span>
+      <h1 id="accessTitle">歡迎回來</h1>
+      <p>請輸入校內共用密碼，進入教師智慧工作站。</p>
+      <form id="accessForm" novalidate>
+        <label for="accessPassword">網站密碼</label>
+        <div class="password-field">
+          <input id="accessPassword" type="password" autocomplete="current-password" placeholder="請輸入密碼" required />
+          <button id="togglePassword" type="button" aria-label="顯示密碼">顯示</button>
+        </div>
+        <p class="access-error" id="accessError" role="alert" aria-live="polite"></p>
+        <button class="access-submit" type="submit">進入系統 <span>→</span></button>
+      </form>
+      <p class="gate-note"><span aria-hidden="true">●</span> 僅供林榮國小校內教學與行政使用</p>
+    </div>
+  </section>
+  <div id="appRoot" hidden>
+  <a class="skip-link" href="#tools">跳至工具區</a>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="回到首頁">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="M8 35 20 16l6 9 5-7 9 17H8Z" fill="currentColor" opacity=".32"/><path d="M7 36h34M13 36c4-4 7-5 11-3s7 2 12-2" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+      </span>
+      <span><strong>林榮智慧教務站</strong><small>花蓮縣林榮國民小學</small></span>
+    </a>
+    <nav aria-label="主要導覽">
+      <a href="#tools">智慧工具</a><a href="#guide">使用說明</a><a href="#copyright">版權宣告</a>
+    </nav>
+    <button class="help-btn" id="helpBtn" type="button" aria-label="開啟使用說明">?</button>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <span class="eyebrow">LIN RONG ELEMENTARY · HUALIEN</span>
+        <h1 id="heroTitle">把行政留給系統，<br><em>把時間留給孩子。</em></h1>
+        <p>為林榮國小教師設計的文件產生工作站。選擇工具、填入重點，即可取得清楚且可直接修改的初稿。</p>
+        <div class="hero-actions"><a class="primary-btn" href="#tools">開始製作文件 <span>↓</span></a><span class="privacy-note">資料僅在本頁處理，不會上傳</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun"></div><div class="mountain mountain-back"></div><div class="mountain mountain-front"></div>
+        <div class="river"></div><div class="leaf leaf-a">◆</div><div class="leaf leaf-b">◆</div>
+        <div class="hero-stat"><strong id="toolCount">20</strong><span>項校務工具</span></div>
+      </div>
+    </section>
+
+    <section class="workspace" id="tools" aria-labelledby="toolsTitle">
+      <div class="workspace-head">
+        <div><span class="section-kicker">TEACHER TOOLKIT</span><h2 id="toolsTitle">今天想完成什麼？</h2></div>
+        <div class="search-wrap"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="搜尋工具，例如：家長信、評語、教案" aria-label="搜尋工具"/><kbd>⌘ K</kbd></div>
+      </div>
+      <div class="category-tabs" id="categoryTabs" role="tablist" aria-label="工具分類"></div>
+      <div class="result-meta"><span id="resultCount"></span><button id="clearFilter" type="button" hidden>清除篩選</button></div>
+      <div class="tool-grid" id="toolGrid"></div>
+      <div class="empty-state" id="emptyState" hidden><span>⌕</span><h3>找不到符合的工具</h3><p>試試「通知」、「評量」或清除搜尋條件。</p><button type="button" id="emptyClear">清除搜尋</button></div>
+    </section>
+
+    <section class="guide" id="guide" aria-labelledby="guideTitle">
+      <div><span class="section-kicker light">THREE SIMPLE STEPS</span><h2 id="guideTitle">三步完成日常文件</h2></div>
+      <ol><li><span>01</span><div><strong>選擇工具</strong><p>依工作情境快速篩選。</p></div></li><li><span>02</span><div><strong>填寫重點</strong><p>用提示欄位整理資訊。</p></div></li><li><span>03</span><div><strong>產生與複製</strong><p>取得初稿後再依需求調整。</p></div></li></ol>
+    </section>
+  </main>
+
+  <footer id="copyright">
+    <div class="footer-brand"><span class="brand-mark small" aria-hidden="true">山</span><div><strong>花蓮縣林榮國民小學</strong><p>林榮智慧教務站</p></div></div>
+    <div class="copyright"><p>© <span id="year"></span> 花蓮縣林榮國民小學 All Rights Reserved.</p><p>本系統產出內容僅供教學與行政初稿使用，使用者應自行審核資料正確性及個資安全。</p></div>
+  </footer>
+
+  <div class="modal" id="toolModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header class="modal-head"><div class="modal-icon" id="modalIcon"></div><div><span id="modalCategory"></span><h2 id="modalTitle"></h2></div><button class="close-btn" type="button" data-close aria-label="關閉">×</button></header>
+      <div class="stepper" aria-label="製作進度"><span class="active" id="stepOne">1 填寫重點</span><i></i><span id="stepTwo">2 預覽文件</span></div>
+      <div class="modal-body">
+        <form id="toolForm">
+          <p class="form-intro" id="modalDesc"></p>
+          <div class="field-grid" id="formFields"></div>
+          <div class="tone-row"><label for="toneSelect">文字語氣</label><select id="toneSelect"><option>溫暖親切</option><option>正式清楚</option><option>活潑鼓勵</option><option>精簡直接</option></select></div>
+          <button class="generate-btn" type="submit">產生文件初稿 <span>→</span></button>
+        </form>
+        <div class="result-view" id="resultView" hidden>
+          <div class="result-toolbar"><span>文件已產生，可直接編輯</span><button type="button" id="copyBtn">複製全文</button></div>
+          <textarea id="resultText" aria-label="產生的文件內容"></textarea>
+          <div class="result-actions"><button type="button" class="secondary-btn" id="backBtn">返回修改</button><button type="button" class="generate-btn" id="regenerateBtn">重新產生</button></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
